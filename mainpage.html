@@ -5,126 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpdumpGallery</title>
     <style>
-        * {
-            font-family: 'Courier New', Courier, monospace;
-            color: darkorange;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background-color: skyblue;
-            text-align: center;
-        }
-        .divs {
-            background-color: black;
-            padding: 20px;
-            color: white;
-        }
-        .Homepagelogo {
-            text-decoration: none;
-            color: white;
-        }
-        #div1 {
-            margin: 20px 0;
-        }
-        #gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .image {
-            background-color: white;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-        .image img {
-            max-width: 200px;
-            max-height: 200px;
-            display: block;
-            margin-bottom: 10px;
-            border-radius: 8px;
-        }
-        .image a {
-            color: brown;
-            text-decoration: underline;
-            font-weight: bold;
-        }
-        .buttons {
-            background-color: blanchedalmond;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        .buttons:hover {
-            background-color: lightcoral;
-        }
-        input[type="file"] {
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 16px;
-            display: inline-block;
-        }
-        input[type="submit"] {
-            background-color: blanchedalmond;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            text-align: center;
-            margin-top: 10px;
-        }
-        input[type="submit"]:hover {
-            background-color: lightcoral;
-        }
-       
-        /* Add these styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 80%;
-        }
-        .modal-content {
-            position: relative;
-        }
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 25px;
-            color: white;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+        /* Add your existing styles here */
     </style>
 </head>
-<body id="loginbody">
+<body>
     <center>
         <div class="divs">
             <h1><a href="index.html" class="Homepagelogo">SpdumpGallery</a></h1>
@@ -135,7 +19,7 @@
     </center>
     <center>
         <h2>To upload a Picture</h2>
-        <form id="uploadForm">
+        <form id="uploadForm" action="http://localhost:3000/upload" method="post" enctype="multipart/form-data">
             <input type="file" id="myFile" name="file" accept="image/*">
             <input type="submit" value="Upload" class="buttons">
         </form>
@@ -155,58 +39,59 @@
     <script>
         document.getElementById('uploadForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the form from submitting the traditional way
-            
+
             const fileInput = document.getElementById('myFile');
             const file = fileInput.files[0];
-            
-            if (file) {
-                const reader = new FileReader();
-                
-                reader.onload = function(event) {
-                    const gallery = document.getElementById('gallery');
-                    
-                    // Create a new div to hold the image and download link
-                    const imageDiv = document.createElement('div');
-                    imageDiv.className = 'image';
-                    
-                    // Create an img element
-                    const img = document.createElement('img');
-                    img.src = event.target.result;
-                    img.alt = file.name;
-                    img.className = 'gallery-img'; // Add a class for styling
-                    
-                    // Create a download link
-                    const downloadLink = document.createElement('a');
-                    downloadLink.href = event.target.result;
-                    downloadLink.download = file.name;
-                    downloadLink.textContent = 'Download';
-                    
-                    // Append img and link to the div
-                    imageDiv.appendChild(img);
-                    imageDiv.appendChild(downloadLink);
-                    
-                    // Append the div to the gallery
-                    gallery.appendChild(imageDiv);
 
-                    // Add click event to open the image in the modal
-                    img.addEventListener('click', function() {
-                        const modal = document.getElementById('imageModal');
-                        const modalImg = document.getElementById('modalImg');
-                        modal.style.display = 'flex';
-                        modalImg.src = event.target.result;
-                    });
-                };
-                
-                reader.readAsDataURL(file); // Read the file as a data URL
+            if (file) {
+                const formData = new FormData();
+                formData.append('file', file);
+
+                fetch('http://localhost:3000/upload', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const gallery = document.getElementById('gallery');
+                        const imageDiv = document.createElement('div');
+                        imageDiv.className = 'image';
+
+                        const img = document.createElement('img');
+                        img.src = data.filePath; // Assuming the server responds with the file path
+                        img.alt = file.name;
+                        img.className = 'gallery-img';
+
+                        const downloadLink = document.createElement('a');
+                        downloadLink.href = data.filePath;
+                        downloadLink.download = file.name;
+                        downloadLink.textContent = 'Download';
+
+                        imageDiv.appendChild(img);
+                        imageDiv.appendChild(downloadLink);
+                        gallery.appendChild(imageDiv);
+
+                        img.addEventListener('click', function() {
+                            const modal = document.getElementById('imageModal');
+                            const modalImg = document.getElementById('modalImg');
+                            modal.style.display = 'flex';
+                            modalImg.src = data.filePath;
+                        });
+                    } else {
+                        alert('Failed to upload file.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
             }
         });
 
-        // Close modal functionality
         document.querySelector('.close').addEventListener('click', function() {
             document.getElementById('imageModal').style.display = 'none';
         });
 
-        // Close modal if clicked outside of the image
         window.addEventListener('click', function(event) {
             if (event.target == document.getElementById('imageModal')) {
                 document.getElementById('imageModal').style.display = 'none';
