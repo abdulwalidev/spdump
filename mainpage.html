@@ -21,10 +21,11 @@
     </center>
     <center>
         <h2>To upload a Picture</h2>
-        <form id="uploadForm" action="http://localhost:3000/upload" method="post" enctype="multipart/form-data">
-            <input type="file" id="myFile" name="file" accept="image/*">
-            <input type="submit" value="Upload" class="buttons">
-        </form>
+        <form id="uploadForm">
+    <input type="file" id="fileInput" accept="image/*">
+    <button type="button" onclick="uploadFile()">Upload</button>
+</form>
+
         <br>
         <h2>Uploaded Pictures</h2>
         <div id="gallery"></div>
