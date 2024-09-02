@@ -4,104 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpDumpGallery</title>
-    <style>
-        /* General styling for all text */
-        * {
-            font-family: 'Courier New', Courier, monospace;
-            color: darkorange;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Container for centering content */
-        center {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: skyblue;
-            padding: 20px;
-        }
-
-        /* Header styling */
-        .divs {
-            background-color: black;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-        }
-
-        .Homepagelogo {
-            color: white;
-            text-decoration: none;
-        }
-
-        /* Button styling */
-        .buttons {
-            background-color: blanchedalmond;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .buttons:hover {
-            background-color: lightcoral;
-        }
-
-        /* Additional Info Styling */
-        .info-section {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px 0;
-            max-width: 800px;
-            display: inline-block;
-            text-align: left;
-        }
-
-        .info-section h3 {
-            margin-bottom: 10px;
-        }
-
-        .info-section p {
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        /* Instagram link styling */
-        .instagram-link {
-            display: inline-block;
-            background-color: #E1306C;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        .instagram-link:hover {
-            background-color: #C13584;
-        }
-    </style>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
     <center>
         <div class="divs">
             <h1><a class="Homepagelogo" href="index.html">SpdumpGallery</a></h1>
         </div>
-<br>
+        <br>
         <h2>Welcom</h2>
         <p id="paragraph">The purpose of this website is to create my own cloud storage using AWS S3 or to host my own server with Raspberry Pi.</p>
 
@@ -113,7 +23,8 @@
 
         <button onclick="document.location='signup.html'" class="buttons">Create an Account</button>
         <br>
-        <h3>Or</h3>        <button onclick="document.location='login.html'" class="buttons">Login</button>
+        <h3>Or</h3>
+        <button onclick="document.location='login.html'" class="buttons">Login</button>
         <br><br>
         <button onclick="window.open('https://www.youtube.com', '_blank')" class="buttons">Random Button to Open YouTube</button>
 
