@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        /* General styling for all text */
+        * {
+            font-family: 'Courier New', Courier, monospace;
+            color: darkorange;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Container for centering content */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: skyblue;
+        }
+
+        /* Header styling */
+        .header {
+            background-color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .Homepagelogo {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Form container styling */
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Form group styling */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Button styling */
+        .styled-button {
+            background-color: blanchedalmond;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .styled-button:hover {
+            background-color: lightcoral;
+        }
+
+        /* Success and error message styling */
+        .message {
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .success-message {
+            color: green;
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+        }
+
+        .error-message {
+            color: red;
+            background-color: #fce4ec;
+            border: 1px solid #f8bbd0;
+        }
+
+        .login-link {
+            margin-top: 20px;
+        }
+
+        .login-link p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><a href="index.html" class="Homepagelogo">SpdumpGallery</a></h1>
+        </div>
+        <div class="form-container">
+            <div id="message" class="message"></div>
+            <h2>Signup</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" name="fullname" id="fullname">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="form-group">
+                    <label for="resetkey">Reset Key</label>
+                    <input type="text" name="resetkey" id="resetkey">
+                </div>
+                <button class="styled-button" type="button" onclick="signup()">Sign Up!</button>
+            </form>
+            <div class="login-link">
+                <p>Or already have an account?</p>
+                <a href="login.html" class="styled-button">Login!</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function signup() {
+            const fullname = document.getElementById('fullname').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const resetkey = document.getElementById('resetkey').value;
+
+            // Check if any fields are empty
+            if (!fullname || !username || !password || !resetkey) {
+                const messageElem = document.getElementById('message');
+                messageElem.textContent = 'Please fill in all fields.';
+                messageElem.className = 'message error-message';
+                return;
+            }
+
+            // Save user data to localStorage
+            localStorage.setItem(username, JSON.stringify({ fullname, password, resetkey }));
+            const messageElem = document.getElementById('message');
+            messageElem.textContent = 'Signup successful! Redirecting to login page...';
+            messageElem.className = 'message success-message';
+
+            // Redirect to login page after 2 seconds
+            setTimeout(function() {
+                window.location.href = 'login.html';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
