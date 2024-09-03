@@ -8,7 +8,7 @@
         /* General styling for all text */
         * {
             font-family: 'Courier New', Courier, monospace;
-            color: rgb(28, 18, 4);
+            color: black; /* Changed text color to black */
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -72,8 +72,8 @@
 
         /* Button styling */
         .styled-button {
-            background-color: blanchedalmond;
-            color: black;
+            background-color: black; /* Same color as header */
+            color: white;
             border: none;
             padding: 10px 20px;
             font-weight: bold;
@@ -84,12 +84,12 @@
             display: inline-block;
             text-align: center;
             font-size: 16px;
+            transition: background-color 0.2s, transform 0.2s; /* Faster transition */
         }
 
-        /* Remove hover animation */
         .styled-button:hover {
-            background-color: blanchedalmond;
-            color: black;
+            background-color: #333; /* Darker shade for hover effect */
+            transform: translateY(-2px);
         }
 
         /* Reset link styling */
@@ -113,7 +113,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1><a href="index.html" class="Homepagelogo">SpdumpGallery</a></h1>
+            <h1><a href="index.html" class="Homepagelogo">SpDumP</a></h1>
         </div>
         <div class="form-container">
             <h2>Login</h2>
