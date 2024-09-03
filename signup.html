@@ -19,9 +19,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Aligns items to the top */
             min-height: 100vh;
             background-color: skyblue;
+            padding-top: 20px; /* Optional: Adds space at the top */
         }
 
         /* Header styling */
@@ -133,14 +134,12 @@
             <h2>Signup</h2>
             <form id="signupForm">
                 <div class="form-group">
-                    <br>
                     <input type="text" name="fullname" id="fullname" placeholder="Full Name">
                 </div>
                 <div class="form-group">
-                    <br>                    <input type="text" name="username" id="username" placeholder="Username">
+                    <input type="text" name="username" id="username" placeholder="Username">
                 </div>
                 <div class="form-group">
-                    <br>
                     <input type="password" name="password" id="password" placeholder="Password">
                 </div>
                 <button class="styled-button" type="button" onclick="signup()">Sign Up!</button>
