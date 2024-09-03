@@ -144,10 +144,6 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password">
                 </div>
-                <div class="form-group">
-                    <label for="resetkey">Reset Key</label>
-                    <input type="text" name="resetkey" id="resetkey">
-                </div>
                 <button class="styled-button" type="button" onclick="signup()">Sign Up!</button>
             </form>
             <div class="login-link">
@@ -162,10 +158,9 @@
             const fullname = document.getElementById('fullname').value;
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            const resetkey = document.getElementById('resetkey').value;
 
             // Check if any fields are empty
-            if (!fullname || !username || !password || !resetkey) {
+            if (!fullname || !username || !password) {
                 const messageElem = document.getElementById('message');
                 messageElem.textContent = 'Please fill in all fields.';
                 messageElem.className = 'message error-message';
@@ -173,7 +168,7 @@
             }
 
             // Save user data to localStorage
-            localStorage.setItem(username, JSON.stringify({ fullname, password, resetkey }));
+            localStorage.setItem(username, JSON.stringify({ fullname, password }));
             const messageElem = document.getElementById('message');
             messageElem.textContent = 'Signup successful! Redirecting to login page...';
             messageElem.className = 'message success-message';
