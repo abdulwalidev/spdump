@@ -1,0 +1,134 @@
+body {
+    background-color: #87ceeb; /* Sky blue background */
+    color: #ffa500; /* Orange text */
+    font-family: 'Courier New', Courier, monospace; /* Font family */
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #000; /* Black div */
+    padding: 20px;
+    text-align: center;
+}
+
+.logo h1 {
+    color: #fff; /* White logo text */
+    margin: 0;
+}
+
+.content {
+    padding: 50px;
+    text-align: center;
+}
+
+#fileInput {
+    display: none;
+}
+
+#uploadButton {
+    background-color: #000; /* Black button */
+    color: #ffa500; /* Orange text */
+    border: 2px solid #ffa500;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace; /* Font family */
+}
+
+#uploadButton:hover {
+    background-color: #ffa500; /* Orange background on hover */
+    color: #000; /* Black text on hover */
+}
+
+#preview {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.preview-image {
+    position: relative;
+    margin: 10px;
+}
+
+.preview-image img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffa500;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-family: 'Courier New', Courier, monospace; /* Font family */
+}
+
+.delete-button:hover {
+    background-color: rgba(255, 165, 0, 0.8); /* Lighter orange on hover */
+}
+
+footer {
+    background-color: #000; /* Black footer div */
+    color: #ffa500; /* Orange text */
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace; /* Font family */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button[type="submit"] {
+    background-color: #000; /* Black button */
+    color: #ffa500; /* Orange text */
+    border: 2px solid #ffa500;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button[type="submit"]:hover {
+    background-color: #ffa500; /* Orange background on hover */
+    color: #000; /* Black text on hover */
+}
+
+p a {
+    color: #ffa500;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
