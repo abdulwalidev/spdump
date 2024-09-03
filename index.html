@@ -3,32 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpamDump</title>
+    <title>SpDump - Signup</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <h1>SpamDump</h1>
-        </div>
+    <div class="container">
+        <h1>SpDump - Signup</h1>
+        <form id="signupForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
     </div>
-
-    <div class="content">
-        <h2>Welcome to SpamDump!</h2>
-        <p>Upload and manage your photos with ease.</p>
-
-        <!-- Updated Upload Button to Allow Multiple Files -->
-        <input type="file" id="fileInput" accept="image/*" multiple>
-        <button id="uploadButton">Upload</button>
-
-        <!-- Image Preview Section -->
-        <div id="preview"></div>
-    </div>
-
-    <footer>
-        <p>© 2024 SpamDump. All rights reserved.</p>
-    </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
