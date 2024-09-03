@@ -8,7 +8,7 @@
         /* General styling */
         * {
             font-family: 'Courier New', Courier, monospace;
-           
+            color: black; /* Changed text color to black */
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -28,7 +28,7 @@
             min-height: 100vh;
             padding: 20px;
             opacity: 0;
-            animation: fadeIn 2s forwards;
+            animation: fadeIn 1s forwards; /* Faster animation */
         }
 
         /* Header styling */
@@ -37,16 +37,16 @@
             padding: 20px;
             text-align: center;
             width: 100%;
-            animation: slideInDown 1s ease-in-out;
+            animation: slideInDown 0.5s ease-in-out; /* Faster animation */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         .Homepagelogo {
-            color: #FF7F24; /* Darker orange color */
+            color: black; /* Changed text color to black */
             text-decoration: none;
-            font-size: 3rem;
-            letter-spacing: 2px;
-            transition: transform 0.3s, opacity 0.3s;
+            font-size: 2rem; /* Adjusted for better responsiveness */
+            letter-spacing: 1px;
+            transition: transform 0.2s, opacity 0.2s; /* Faster transition */
         }
 
         .Homepagelogo:hover {
@@ -56,27 +56,28 @@
 
         /* Text animations */
         .headline {
-            font-size: 2.5rem;
+            font-size: 2rem; /* Adjusted for better responsiveness */
             text-transform: uppercase;
             margin-top: 20px;
-            animation: textSlideIn 1.5s ease-in-out;
-            letter-spacing: 3px;
-            color: #FF7F24; /* Darker orange color */
+            animation: textSlideIn 1s ease-in-out; /* Faster animation */
+            letter-spacing: 2px;
+            color: black; /* Changed text color to black */
         }
 
         .description {
             margin-top: 10px;
-            font-size: 1.2rem;
-            max-width: 800px;
+            font-size: 1rem; /* Adjusted for better responsiveness */
+            max-width: 90%; /* Responsive max width */
             text-align: center;
             line-height: 1.6;
             opacity: 0;
-            animation: fadeInUp 1.5s ease-in-out 0.5s forwards;
-            color: #FF7F24; /* Darker orange color */
+            animation: fadeInUp 1s ease-in-out 0.2s forwards; /* Faster animation */
+            color: black; /* Changed text color to black */
         }
 
         /* Button styling */
-        .cta-button {
+        .cta-button,
+        .login-button {
             background-color: #FFB347;
             color: white;
             border: none;
@@ -84,18 +85,19 @@
             font-weight: bold;
             cursor: pointer;
             border-radius: 30px;
-            font-size: 18px;
+            font-size: 1rem; /* Adjusted for better responsiveness */
             text-decoration: none;
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 20px; /* Adjusted spacing */
             text-align: center;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.2s, transform 0.2s; /* Faster transition */
             box-shadow: 0 8px 20px rgba(255, 179, 71, 0.6);
             opacity: 0;
-            animation: fadeInUp 1.5s ease-in-out 0.8s forwards;
+            animation: fadeInUp 1s ease-in-out 0.4s forwards; /* Faster animation */
         }
 
-        .cta-button:hover {
+        .cta-button:hover,
+        .login-button:hover {
             background-color: #FFA07A;
             transform: translateY(-5px);
         }
@@ -110,8 +112,8 @@
             max-width: 900px;
             text-align: center;
             opacity: 0;
-            animation: fadeIn 2s ease-in-out 1s forwards;
-            color: #FF7F24; /* Darker orange color */
+            animation: fadeIn 1s ease-in-out 0.6s forwards; /* Faster animation */
+            color: black; /* Changed text color to black */
         }
 
         .info-section h3 {
@@ -122,27 +124,6 @@
         .info-section p {
             margin-bottom: 15px;
             font-size: 1.1rem;
-        }
-
-        /* Login button styling */
-        .login-button {
-            display: inline-block;
-            background-color: #FFB347;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 30px;
-            transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 0 8px 20px rgba(255, 179, 71, 0.6);
-            opacity: 0;
-            animation: fadeInUp 1.5s ease-in-out 1.2s forwards;
-        }
-
-        .login-button:hover {
-            background-color: #FFA07A;
-            transform: translateY(-5px);
         }
 
         /* Keyframes for animations */
