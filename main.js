@@ -1,4 +1,4 @@
-const apiBaseUrl = 'YOUR_BACKEND_URL'; // Replace with your actual backend URL
+const apiBaseUrl = 'mongodb+srv://abdulwalidev:tZ90SJWhOdPx1GqW@cluster0.mwfza.mongodb.net/spamDump?retryWrites=true&w=majority'; // Replace with your actual backend URL
 
 document.addEventListener('DOMContentLoaded', () => {
     const signupForm = document.getElementById('signup-form');
