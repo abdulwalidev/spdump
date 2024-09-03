@@ -3,215 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpdumpGallery</title>
+    <title>SpDumpGallery</title>
     <style>
+        /* General styling */
         * {
-            font-family: 'Courier New', Courier, monospace;
-            color: darkorange;
+            font-family: 'Arial', sans-serif;
+            color: white;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            background-color: skyblue;
-            text-align: center;
+            background-color: #1b1b1b;
+            overflow-x: hidden;
         }
-        .divs {
-            background-color: black;
-            padding: 20px;
-            color: white;
-        }
-        .Homepagelogo {
-            text-decoration: none;
-            color: white;
-        }
-        #div1 {
-            margin: 20px 0;
-        }
-        #gallery {
+
+        /* Container for centering content */
+        .center-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
+            min-height: 100vh;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
         }
-        .image {
-            background-color: white;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+        /* Header styling */
+        .header {
+            background-color: #000;
+            padding: 20px;
             text-align: center;
+            width: 100%;
+            animation: slideInDown 1s ease-in-out;
         }
-        .image img {
-            max-width: 200px;
-            max-height: 200px;
-            display: block;
-            margin-bottom: 10px;
-            border-radius: 8px;
+
+        .Homepagelogo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            transition: transform 0.3s, opacity 0.3s;
         }
-        .image a {
-            color: brown;
-            text-decoration: underline;
-            font-weight: bold;
+
+        .Homepagelogo:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
         }
+
+        /* Text animations */
+        .headline {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-top: 20px;
+            animation: textSlideIn 1.5s ease-in-out;
+            letter-spacing: 3px;
+        }
+
+        .description {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            max-width: 800px;
+            text-align: center;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-in-out 0.5s forwards;
+        }
+
+        /* Button styling */
         .buttons {
-            background-color: blanchedalmond;
-            color: black;
+            background-color: #0a84ff;
+            color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 15px 30px;
             font-weight: bold;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 18px;
             text-decoration: none;
             display: inline-block;
-            margin-top: 10px;
-        }
-        .buttons:hover {
-            background-color: lightcoral;
-        }
-        input[type="file"] {
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 16px;
-            display: inline-block;
-        }
-        input[type="submit"] {
-            background-color: blanchedalmond;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
+            margin-top: 20px;
             text-align: center;
-            margin-top: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-in-out 0.8s forwards;
         }
-        input[type="submit"]:hover {
-            background-color: lightcoral;
+
+        .buttons:hover {
+            background-color: #007aff;
+            transform: translateY(-5px);
         }
-       
-        /* Add these styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
+
+        /* Additional Info Styling */
+        .info-section {
+            background-color: #252525;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            margin: 40px 0;
+            max-width: 900px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 1s forwards;
         }
-        .modal img {
-            max-width: 90%;
-            max-height: 80%;
+
+        .info-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
         }
-        .modal-content {
-            position: relative;
+
+        .info-section p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
         }
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 25px;
+
+        /* Instagram link styling */
+        .instagram-link {
+            display: inline-block;
+            background-color: #E1306C;
             color: white;
-            font-size: 35px;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
             font-weight: bold;
-            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-in-out 1.2s forwards;
+        }
+
+        .instagram-link:hover {
+            background-color: #C13584;
+            transform: translateY(-5px);
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes textSlideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
     </style>
 </head>
-<body id="loginbody">
-    <center>
-        <div class="divs">
-            <h1><a href="index.html" class="Homepagelogo">SpdumpGallery</a></h1>
+<body>
+    <div class="center-container">
+        <div class="header">
+            <h1><a class="Homepagelogo" href="index.html">SpDumpGallery</a></h1>
         </div>
-        <div id="div1">
-            <h1>Welcome</h1>
+
+        <h2 class="headline">Welcome</h2>
+        <p class="description">The purpose of this website is to create my own cloud storage using AWS S3 or to host my own server with Raspberry Pi.</p>
+
+        <div class="info-section">
+            <h3>About This Project</h3>
+            <p>This project aims to provide a personal cloud storage solution where users can upload, manage, and access their images securely.</p>
+            <p>Stay tuned for more features and updates as we continue to enhance the functionality and user experience of SpDumpGallery.</p>
         </div>
-    </center>
-    <center>
-        <h2>To upload a Picture</h2>
-        <form id="uploadForm">
-            <input type="file" id="myFile" name="file" accept="image/*">
-            <input type="submit" value="Upload" class="buttons">
-        </form>
+
+        <button onclick="document.location='signup.html'" class="buttons">Create an Account</button>
         <br>
-        <h2>Uploaded Pictures</h2>
-        <div id="gallery"></div>
-    </center>
+        <h3>Or</h3>
+        <button onclick="document.location='login.html'" class="buttons">Login</button>
+        <br><br>
+        <button onclick="window.open('https://www.youtube.com', '_blank')" class="buttons">Random Button to Open YouTube</button>
 
-    <!-- Modal -->
-    <div id="imageModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modalImg" src="">
-        </div>
+        <a href="https://www.instagram.com/walicameo" class="instagram-link" target="_blank">Follow me on Instagram!</a>
     </div>
-
-    <script>
-        document.getElementById('uploadForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting the traditional way
-            
-            const fileInput = document.getElementById('myFile');
-            const file = fileInput.files[0];
-            
-            if (file) {
-                const reader = new FileReader();
-                
-                reader.onload = function(event) {
-                    const gallery = document.getElementById('gallery');
-                    
-                    // Create a new div to hold the image and download link
-                    const imageDiv = document.createElement('div');
-                    imageDiv.className = 'image';
-                    
-                    // Create an img element
-                    const img = document.createElement('img');
-                    img.src = event.target.result;
-                    img.alt = file.name;
-                    img.className = 'gallery-img'; // Add a class for styling
-                    
-                    // Create a download link
-                    const downloadLink = document.createElement('a');
-                    downloadLink.href = event.target.result;
-                    downloadLink.download = file.name;
-                    downloadLink.textContent = 'Download';
-                    
-                    // Append img and link to the div
-                    imageDiv.appendChild(img);
-                    imageDiv.appendChild(downloadLink);
-                    
-                    // Append the div to the gallery
-                    gallery.appendChild(imageDiv);
-
-                    // Add click event to open the image in the modal
-                    img.addEventListener('click', function() {
-                        const modal = document.getElementById('imageModal');
-                        const modalImg = document.getElementById('modalImg');
-                        modal.style.display = 'flex';
-                        modalImg.src = event.target.result;
-                    });
-                };
-                
-                reader.readAsDataURL(file); // Read the file as a data URL
-            }
-        });
-
-        // Close modal functionality
-        document.querySelector('.close').addEventListener('click', function() {
-            document.getElementById('imageModal').style.display = 'none';
-        });
-
-        // Close modal if clicked outside of the image
-        window.addEventListener('click', function(event) {
-            if (event.target == document.getElementById('imageModal')) {
-                document.getElementById('imageModal').style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>
