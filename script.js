@@ -45,3 +45,7 @@ document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
         alert(result.msg);
     }
 });
+
+const signupUrl = 'https://your-backend-url.com/signup'; // URL of your deployed backend signup endpoint
+const loginUrl = 'https://your-backend-url.com/login'; // URL of your deployed backend login endpoint
+
