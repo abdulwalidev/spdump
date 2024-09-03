@@ -8,14 +8,14 @@
         /* General styling */
         * {
             font-family: 'Arial', sans-serif;
-            color: white;
+            color: #ffffff;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            background-color: #1b1b1b;
+            background-color: #121212;
             overflow-x: hidden;
         }
 
@@ -29,23 +29,26 @@
             padding: 20px;
             opacity: 0;
             animation: fadeIn 2s forwards;
+            background-image: linear-gradient(45deg, #0d47a1, #1976d2);
         }
 
         /* Header styling */
         .header {
-            background-color: #000;
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
             text-align: center;
             width: 100%;
             animation: slideInDown 1s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         .Homepagelogo {
-            color: #fff;
+            color: #03a9f4;
             text-decoration: none;
             font-size: 3rem;
             letter-spacing: 2px;
             transition: transform 0.3s, opacity 0.3s;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .Homepagelogo:hover {
@@ -60,6 +63,8 @@
             margin-top: 20px;
             animation: textSlideIn 1.5s ease-in-out;
             letter-spacing: 3px;
+            color: #ffffff;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
         }
 
         .description {
@@ -70,35 +75,38 @@
             line-height: 1.6;
             opacity: 0;
             animation: fadeInUp 1.5s ease-in-out 0.5s forwards;
+            color: #f5f5f5;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         /* Button styling */
-        .buttons {
-            background-color: #0a84ff;
+        .cta-button {
+            background-color: #ff4081;
             color: white;
             border: none;
             padding: 15px 30px;
             font-weight: bold;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 30px;
             font-size: 18px;
             text-decoration: none;
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 30px;
             text-align: center;
             transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 8px 20px rgba(255, 64, 129, 0.6);
             opacity: 0;
             animation: fadeInUp 1.5s ease-in-out 0.8s forwards;
         }
 
-        .buttons:hover {
-            background-color: #007aff;
+        .cta-button:hover {
+            background-color: #ff80ab;
             transform: translateY(-5px);
         }
 
         /* Additional Info Styling */
         .info-section {
-            background-color: #252525;
+            background-color: rgba(0, 0, 0, 0.85);
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
@@ -107,6 +115,8 @@
             text-align: center;
             opacity: 0;
             animation: fadeIn 2s ease-in-out 1s forwards;
+            color: #eeeeee;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .info-section h3 {
@@ -125,17 +135,18 @@
             background-color: #E1306C;
             color: white;
             padding: 15px 30px;
-            border-radius: 5px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 30px;
             transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.6);
             opacity: 0;
             animation: fadeInUp 1.5s ease-in-out 1.2s forwards;
         }
 
         .instagram-link:hover {
-            background-color: #C13584;
+            background-color: #c13584;
             transform: translateY(-5px);
         }
 
@@ -176,13 +187,7 @@
             <p>Stay tuned for more features and updates as we continue to enhance the functionality and user experience of SpDumpGallery.</p>
         </div>
 
-        <button onclick="document.location='signup.html'" class="buttons">Create an Account</button>
-        <br>
-        <h3>Or</h3>
-        <button onclick="document.location='login.html'" class="buttons">Login</button>
-        <br><br>
-        <button onclick="window.open('https://www.youtube.com', '_blank')" class="buttons">Random Button to Open YouTube</button>
-
+        <a href="signup.html" class="cta-button">Create an Account</a>
         <a href="https://www.instagram.com/walicameo" class="instagram-link" target="_blank">Follow me on Instagram!</a>
     </div>
 </body>
