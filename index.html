@@ -5,89 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpDumpGallery</title>
     <style>
-        /* General styling for all text */
+        /* General styling */
         * {
-            font-family: 'Courier New', Courier, monospace;
-            color: darkorange;
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        body {
+            background-color: #121212;
+            overflow-x: hidden;
+        }
+
         /* Container for centering content */
-        center {
+        .center-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: skyblue;
             padding: 20px;
-            animation: fadeIn 1.5s ease-in-out;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            background-image: linear-gradient(45deg, #0d47a1, #1976d2);
         }
 
         /* Header styling */
-        .divs {
-            background-color: black;
+        .header {
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
             text-align: center;
             width: 100%;
             animation: slideInDown 1s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         .Homepagelogo {
-            color: white;
+            color: #03a9f4;
             text-decoration: none;
-            font-size: 2.5rem;
-            transition: transform 0.3s;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .Homepagelogo:hover {
             transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        /* Text animations */
+        .headline {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-top: 20px;
+            animation: textSlideIn 1.5s ease-in-out;
+            letter-spacing: 3px;
+            color: #ffffff;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .description {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            max-width: 800px;
+            text-align: center;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-in-out 0.5s forwards;
+            color: #f5f5f5;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         /* Button styling */
-        .buttons {
-            background-color: blanchedalmond;
-            color: black;
+        .cta-button {
+            background-color: #ff4081;
+            color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 15px 30px;
             font-weight: bold;
             cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 30px;
+            font-size: 18px;
             text-decoration: none;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 30px;
             text-align: center;
             transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 8px 20px rgba(255, 64, 129, 0.6);
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-in-out 0.8s forwards;
         }
 
-        .buttons:hover {
-            background-color: lightcoral;
-            transform: scale(1.05);
+        .cta-button:hover {
+            background-color: #ff80ab;
+            transform: translateY(-5px);
         }
 
         /* Additional Info Styling */
         .info-section {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px 0;
-            max-width: 800px;
-            display: inline-block;
-            text-align: left;
-            animation: fadeInUp 1s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            margin: 40px 0;
+            max-width: 900px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 1s forwards;
+            color: #eeeeee;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .info-section h3 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
         }
 
         .info-section p {
-            margin-bottom: 10px;
-            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
         }
 
         /* Instagram link styling */
@@ -95,17 +134,20 @@
             display: inline-block;
             background-color: #E1306C;
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 15px 30px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 30px;
             transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.6);
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-in-out 1.2s forwards;
         }
 
         .instagram-link:hover {
-            background-color: #C13584;
-            transform: scale(1.05);
+            background-color: #c13584;
+            transform: translateY(-5px);
         }
 
         /* Keyframes for animations */
@@ -120,34 +162,33 @@
         }
 
         @keyframes fadeInUp {
-            from { transform: translateY(100%); opacity: 0; }
+            from { transform: translateY(30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes textSlideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <center>
-        <div class="divs">
+    <div class="center-container">
+        <div class="header">
             <h1><a class="Homepagelogo" href="index.html">SpDumpGallery</a></h1>
         </div>
-        <br>
-        <h2>Welcome</h2>
-        <p id="paragraph">The purpose of this website is to create my own cloud storage using AWS S3 or to host my own server with Raspberry Pi.</p>
+
+        <h2 class="headline">Welcome</h2>
+        <p class="description">The purpose of this website is to create my own cloud storage using AWS S3 or to host my own server with Raspberry Pi.</p>
 
         <div class="info-section">
             <h3>About This Project</h3>
-            <p>This project aims to provide a personal cloud storage solution where users can upload, manage, and access their images securely. Whether you choose to use cloud services like AWS S3 or prefer hosting your own server using a Raspberry Pi, our platform offers a flexible solution for managing your photos.</p>
+            <p>This project aims to provide a personal cloud storage solution where users can upload, manage, and access their images securely.</p>
             <p>Stay tuned for more features and updates as we continue to enhance the functionality and user experience of SpDumpGallery.</p>
         </div>
 
-        <button onclick="document.location='signup.html'" class="buttons">Create an Account</button>
-        <br>
-        <h3>Or</h3>
-        <button onclick="document.location='login.html'" class="buttons">Login</button>
-        <br><br>
-        <button onclick="window.open('https://www.youtube.com', '_blank')" class="buttons">Random Button to Open YouTube</button>
-
+        <a href="signup.html" class="cta-button">Create an Account</a>
         <a href="https://www.instagram.com/walicameo" class="instagram-link" target="_blank">Follow me on Instagram!</a>
-    </center>
+    </div>
 </body>
 </html>
