@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpDump - Dashboard</title>
+    <title>Dashboard - SpDump</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to SpDump Dashboard</h1>
-        <p>You have successfully logged in!</p>
-    </div>
+    <h1 id="welcome-message">Loading...</h1>
+    <button onclick="localStorage.removeItem('token'); window.location.href='login.html';">Logout</button>
+    <script src="main.js"></script>
 </body>
 </html>
